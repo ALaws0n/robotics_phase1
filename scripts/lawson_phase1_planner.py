@@ -22,9 +22,9 @@ if __name__ == '__main__':
 	plan = Plan()
 	plan_point1 = Twist()
 	# define point close to init pos
-	plan_point1.linear.x = -0.792
+	plan_point1.linear.x = -0.65
 	plan_point1.linear.y = -0.133
-	plan_point1.linear.z = 0.0363
+	plan_point1.linear.z = 0.235
 	plan_point1.angular.x = angular_x
 	plan_point1.angular.y = angular_y
 	plan_point1.angular.z = angular_z
@@ -32,15 +32,37 @@ if __name__ == '__main__':
 	plan.points.append(plan_point1)
 	
 	plan_point2 = Twist()
-	# define the first pos
-	plan_point2.linear.x = -0.950
+	# define the pick up pos
+	plan_point2.linear.x = -0.65
 	plan_point2.linear.y = -0.133
-	plan_point2.linear.z = 0.015
+	plan_point2.linear.z = 0.075
 	plan_point2.angular.x = angular_x
 	plan_point2.angular.y = angular_y
 	plan_point2.angular.z = angular_z
 	# add point to plan
 	plan.points.append(plan_point2)
+	
+	plan_point3 = Twist()
+	# define the safe waypoint pos
+	plan_point3.linear.x = -0.78
+	plan_point3.linear.y = -0.133
+	plan_point3.linear.z = 0.235
+	plan_point3.angular.x = angular_x
+	plan_point3.angular.y = angular_y
+	plan_point3.angular.z = angular_z
+	# add point to plan
+	plan.points.append(plan_point3)
+	
+	plan_point4 = Twist()
+	# define the placement pos
+	plan_point4.linear.x = -0.78
+	plan_point4.linear.y = -0.133
+	plan_point4.linear.z = 0.075
+	plan_point4.angular.x = angular_x
+	plan_point4.angular.y = angular_y
+	plan_point4.angular.z = angular_z
+	# add point to plan
+	plan.points.append(plan_point4)
 	
 	while not rospy.is_shutdown():
 		# publish the plan
